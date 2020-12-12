@@ -26,9 +26,9 @@
 		78F495242584FF670066E758 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F495232584FF670066E758 /* Roboto-Regular.ttf */; };
 		78F495272584FFE70066E758 /* HelveticaNeueCyr-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F495262584FFE70066E758 /* HelveticaNeueCyr-Black.ttf */; };
 		78F49534258500F10066E758 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F49533258500F10066E758 /* UIColor+Extensions.swift */; };
-		78F49539258501B70066E758 /* Akzidenzgroteskpro-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F49538258501B70066E758 /* Akzidenzgroteskpro-regular.ttf */; };
 		78F4953C258501BE0066E758 /* Akzidenzgroteskpro-boldcn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4953B258501BE0066E758 /* Akzidenzgroteskpro-boldcn.ttf */; };
 		78F4953F258501C70066E758 /* Akzidenzgroteskpro-md.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4953E258501C70066E758 /* Akzidenzgroteskpro-md.ttf */; };
+		78F49543258505000066E758 /* akzidenzgroteskpro-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F49542258505000066E758 /* akzidenzgroteskpro-regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,9 +53,9 @@
 		78F495232584FF670066E758 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		78F495262584FFE70066E758 /* HelveticaNeueCyr-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueCyr-Black.ttf"; sourceTree = "<group>"; };
 		78F49533258500F10066E758 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		78F49538258501B70066E758 /* Akzidenzgroteskpro-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akzidenzgroteskpro-regular.ttf"; sourceTree = "<group>"; };
 		78F4953B258501BE0066E758 /* Akzidenzgroteskpro-boldcn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akzidenzgroteskpro-boldcn.ttf"; sourceTree = "<group>"; };
 		78F4953E258501C70066E758 /* Akzidenzgroteskpro-md.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akzidenzgroteskpro-md.ttf"; sourceTree = "<group>"; };
+		78F49542258505000066E758 /* akzidenzgroteskpro-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "akzidenzgroteskpro-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 				78F4951A2583A4610066E758 /* Roboto-Bold.ttf */,
 				78F495232584FF670066E758 /* Roboto-Regular.ttf */,
 				78F495262584FFE70066E758 /* HelveticaNeueCyr-Black.ttf */,
-				78F49538258501B70066E758 /* Akzidenzgroteskpro-regular.ttf */,
+				78F49542258505000066E758 /* akzidenzgroteskpro-regular.ttf */,
 				78F4953B258501BE0066E758 /* Akzidenzgroteskpro-boldcn.ttf */,
 				78F4953E258501C70066E758 /* Akzidenzgroteskpro-md.ttf */,
 			);
@@ -221,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F494EB25838BA80066E758 /* LaunchScreen.storyboard in Resources */,
-				78F49539258501B70066E758 /* Akzidenzgroteskpro-regular.ttf in Resources */,
 				78F4950B25839A150066E758 /* SFProDisplay-Medium.ttf in Resources */,
 				78F4953F258501C70066E758 /* Akzidenzgroteskpro-md.ttf in Resources */,
 				78F495242584FF670066E758 /* Roboto-Regular.ttf in Resources */,
@@ -230,6 +229,7 @@
 				78F4951B2583A4610066E758 /* Roboto-Bold.ttf in Resources */,
 				78F4953C258501BE0066E758 /* Akzidenzgroteskpro-boldcn.ttf in Resources */,
 				78F4951E2583A5270066E758 /* SFProDisplay-Regular.ttf in Resources */,
+				78F49543258505000066E758 /* akzidenzgroteskpro-regular.ttf in Resources */,
 				78F494E825838BA80066E758 /* Assets.xcassets in Resources */,
 				78F494E625838BA80066E758 /* Main.storyboard in Resources */,
 			);
