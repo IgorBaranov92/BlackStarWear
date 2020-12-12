@@ -4,8 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Akzidenzgroteskpro-boldcn.ttf</string>
 		<string>Akzidenzgroteskpro-md.ttf</string>
+		<string>Akzidenzgroteskpro-boldcn.ttf</string>
 		<string>Akzidenzgroteskpro-regular.ttf</string>
 		<string>HelveticaNeueCyr-Black.ttf</string>
 		<string>Roboto-Regular.ttf</string>
