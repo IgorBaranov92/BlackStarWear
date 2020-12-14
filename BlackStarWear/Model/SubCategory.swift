@@ -1,11 +1,10 @@
 import Foundation
 
-struct SubCategory {
+struct SubCategory: Hashable {
     
     let iconImage:String
     let id: Int
     let name: String
     let sortOrder: Int
-    let type:String
-    
+    var backupImageData: Data? = nil
 }

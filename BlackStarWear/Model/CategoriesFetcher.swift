@@ -10,14 +10,12 @@ class CategoriesFetcher {
                 let request = URLRequest(url: url)
                 let task = session.dataTask(with: request) { (data, responce, error) in
                     if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-                        print(json)
                         if let dict = json as? [String:Any] {
                             CategoryParser.parse(dict) { (categories) in
                                 DispatchQueue.main.async {
                                     completion(categories)
                                 }
                             }
-                            
                         }
                     }
                 }

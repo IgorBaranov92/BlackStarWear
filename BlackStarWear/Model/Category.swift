@@ -3,9 +3,10 @@ import Foundation
 struct Category {
     
     let name:String
-    let imageKey:String
-    let backupImageData:Data?
+    let iconImage:String
+    var backupImageData:Data? = nil
     let sortOrder: Int
-    let subCategories: [SubCategory]
+    let subCategories: Set<SubCategory>
     
+  
 }
