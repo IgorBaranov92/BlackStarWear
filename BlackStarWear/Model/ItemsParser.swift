@@ -10,9 +10,12 @@ class ItemParser {
         json.forEach { (key,_) in
             if let dict = json[key] as? [String:Any],
                let name = dict["name"] as? String,
-               let mainImage = dict["mainImage"] as? String
-                {
-                items.append(Item(name: name, price: 0, mainImage: mainImage))
+               let mainImage = dict["mainImage"] as? String,
+               let price = dict["price"] as? String ,
+               let doublePrice = Double(price),
+               let description = dict["description"] as? String,
+               let offers = dict["offers"] as? [[String:Any]] {
+                items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description))
             }
         }
         completion(items)

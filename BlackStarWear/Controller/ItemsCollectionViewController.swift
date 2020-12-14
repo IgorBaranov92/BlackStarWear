@@ -25,6 +25,9 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         if let itemCell = cell as? ItemCollectionViewCell {
                 itemCell.price = items[indexPath.row].price
                 itemCell.name = items[indexPath.row].name
+            itemCell.fetch(URLS.getIconURLBasedOn(iconName: items[indexPath.row].mainImage), backupData: items[indexPath.row].backupImageData) { [weak self] (data, url) in
+                self?.items[indexPath.row].backupImageData = data
+            }
             return itemCell
         }
         return cell

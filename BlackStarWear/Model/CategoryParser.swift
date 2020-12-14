@@ -5,7 +5,6 @@ class CategoryParser {
     
     class func parse(_ json:[String:Any],completion: @escaping ( ([Category]) -> Void)) {
         var categories = [Category]()
-        print(json)
         json.forEach { (key, _) in
             if let category = json[key] as? [String:Any] {
                 if let name = category["name"] as? String,
