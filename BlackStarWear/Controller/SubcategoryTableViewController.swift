@@ -22,10 +22,21 @@ class SubcategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: "items", sender: cell)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "items",
+           let destination = segue.destination as? ItemsCollectionViewController,
+           let cell = sender as? SubcategoryTableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+                destination.itemID = subcategories[indexPath.row].id
+        }
     }
     
 }

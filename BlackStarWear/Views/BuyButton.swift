@@ -16,8 +16,8 @@ class BuyButton: UIButton {
         layer.cornerRadius = 5.0
         backgroundColor = .buyButtonColor
         setTitle("КУПИТЬ", for: .normal)
-        titleLabel?.font = UIFont(name: "Roboto-Bold", size: 8)!
-        titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        titleLabel!.font = UIFont(name: "Roboto-Bold", size: 8)!
+        titleLabel!.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
 }
