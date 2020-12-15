@@ -3,7 +3,12 @@ import UIKit
 class SubcategoryTableViewController: UITableViewController {
 
     var subcategories = [SubCategory]()
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subcategories.count
     }

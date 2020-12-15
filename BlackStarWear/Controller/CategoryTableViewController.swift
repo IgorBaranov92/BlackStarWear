@@ -4,6 +4,11 @@ class CategoryTableViewController: UITableViewController {
 
     var categories = [Category]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         CategoriesFetcher.fetch { [weak self] in

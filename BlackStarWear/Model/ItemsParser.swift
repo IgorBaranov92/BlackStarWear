@@ -14,8 +14,16 @@ class ItemParser {
                let price = dict["price"] as? String ,
                let doublePrice = Double(price),
                let description = dict["description"] as? String,
-               let offers = dict["offers"] as? [[String:Any]] {
-                items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description))
+               let offers = dict["offers"] as? [[String:Any]],
+               let productImages = dict["productImages"] as? [[String:Any]] {
+                var images = [String]()
+                productImages.forEach { (key) in
+                    if let imageURL = key["imageURL"] as? String {
+                        images.append(imageURL)
+                    }
+                }
+                items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description, images: images))
+                
             }
         }
         completion(items)

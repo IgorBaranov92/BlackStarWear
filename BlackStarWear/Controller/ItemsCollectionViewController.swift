@@ -37,4 +37,13 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.bounds.width - 40)/2, height: 248)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemDetail",
+           let destination = segue.destination as? ItemDetailViewController,
+           let cell = sender as? ItemCollectionViewCell,
+           let indePath = collectionView.indexPath(for: cell) {
+            destination.item = items[indePath.row]
+        }
+    }
 }

@@ -17,8 +17,8 @@ class AddToCartLabel: UILabel {
         font = UIFont(name: "AkzidenzGroteskPro-Md", size: 13)!
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.12
-        textAlignment = .center
-        attributedText = NSMutableAttributedString(string: "ДОБАВИТЬ В КОРЗИНУ", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        paragraphStyle.alignment = .center
+        attributedText = NSMutableAttributedString(string: "ДОБАВИТЬ В КОРЗИНУ", attributes: [.paragraphStyle: paragraphStyle])
     }
 
 }
