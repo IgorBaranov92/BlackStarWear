@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RemoveFromCartView" customModule="BlackStarWear" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Удалить товар из корзины?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmi-pH-gws">
+                    <rect key="frame" x="97.5" y="38" width="219" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="s5d-oK-1j6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f6-Sw-Kij">
+                    <rect key="frame" x="0.0" y="92" width="414" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldq-MF-ZOg" customClass="YesButton" customModule="BlackStarWear" customModuleProvider="target">
+                            <rect key="frame" x="29" y="0.0" width="358" height="48"/>
+                            <connections>
+                                <action selector="removeItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="Y7a-qM-cIk"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ДА" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOG-jG-tx9">
+                            <rect key="frame" x="195" y="16" width="24" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="7Fp-mZ-C6d"/>
+                        <constraint firstItem="Ldq-MF-ZOg" firstAttribute="top" secondItem="7f6-Sw-Kij" secondAttribute="top" id="IXD-Yu-H8d"/>
+                        <constraint firstItem="qOG-jG-tx9" firstAttribute="top" secondItem="7f6-Sw-Kij" secondAttribute="top" constant="16" id="SCK-Dy-Fhz"/>
+                        <constraint firstItem="Ldq-MF-ZOg" firstAttribute="leading" secondItem="7f6-Sw-Kij" secondAttribute="leading" constant="29" id="YV9-ED-nkc"/>
+                        <constraint firstAttribute="bottom" secondItem="Ldq-MF-ZOg" secondAttribute="bottom" id="afd-3E-59z"/>
+                        <constraint firstItem="qOG-jG-tx9" firstAttribute="centerX" secondItem="7f6-Sw-Kij" secondAttribute="centerX" id="idj-Y4-XYa"/>
+                        <constraint firstAttribute="trailing" secondItem="Ldq-MF-ZOg" secondAttribute="trailing" constant="27" id="sLC-CE-xKD"/>
+                        <constraint firstAttribute="bottom" secondItem="qOG-jG-tx9" secondAttribute="bottom" constant="16" id="thJ-4z-bZa"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zk-G2-11O">
+                    <rect key="frame" x="29" y="152" width="358" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLO-Ga-GBA" customClass="NoButton" customModule="BlackStarWear" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="48"/>
+                            <connections>
+                                <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="Nud-SM-1Mz"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НЕТ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6e-06-X6B">
+                            <rect key="frame" x="162.5" y="16" width="33" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jLO-Ga-GBA" secondAttribute="trailing" id="0fZ-gM-HUZ"/>
+                        <constraint firstItem="jLO-Ga-GBA" firstAttribute="leading" secondItem="4zk-G2-11O" secondAttribute="leading" id="3ul-uX-Qm3"/>
+                        <constraint firstItem="D6e-06-X6B" firstAttribute="top" secondItem="4zk-G2-11O" secondAttribute="top" constant="16" id="d3E-mV-lia"/>
+                        <constraint firstItem="D6e-06-X6B" firstAttribute="centerX" secondItem="4zk-G2-11O" secondAttribute="centerX" id="dwj-1Y-jOe"/>
+                        <constraint firstItem="jLO-Ga-GBA" firstAttribute="top" secondItem="4zk-G2-11O" secondAttribute="top" id="mCn-kv-eXa"/>
+                        <constraint firstAttribute="bottom" secondItem="jLO-Ga-GBA" secondAttribute="bottom" id="pR8-fk-1sR"/>
+                        <constraint firstAttribute="bottom" secondItem="D6e-06-X6B" secondAttribute="bottom" constant="16" id="vnb-Lj-exV"/>
+                        <constraint firstAttribute="height" constant="48" id="waZ-F8-Xmz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="7f6-Sw-Kij" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6VJ-vO-cif"/>
+                <constraint firstItem="7f6-Sw-Kij" firstAttribute="top" secondItem="Tmi-pH-gws" secondAttribute="bottom" constant="33" id="JTV-PI-JOW"/>
+                <constraint firstItem="Tmi-pH-gws" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L0d-Wh-Olq"/>
+                <constraint firstAttribute="trailing" secondItem="7f6-Sw-Kij" secondAttribute="trailing" id="QoO-b8-6l9"/>
+                <constraint firstItem="Tmi-pH-gws" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="38" id="TAm-KY-J06"/>
+                <constraint firstItem="4zk-G2-11O" firstAttribute="top" secondItem="7f6-Sw-Kij" secondAttribute="bottom" constant="12" id="Tr0-UN-bGp"/>
+                <constraint firstAttribute="trailing" secondItem="4zk-G2-11O" secondAttribute="trailing" constant="27" id="dus-UU-HzS"/>
+                <constraint firstItem="4zk-G2-11O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="29" id="iJz-dc-Iiu"/>
+            </constraints>
+            <connections>
+                <outlet property="noLabel" destination="D6e-06-X6B" id="4Q5-2J-i61"/>
+                <outlet property="titleLabel" destination="Tmi-pH-gws" id="6Ow-vE-o6f"/>
+                <outlet property="yesLabel" destination="qOG-jG-tx9" id="8AU-gn-546"/>
+            </connections>
+            <point key="canvasLocation" x="48" y="117"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="Ldq-MF-ZOg">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="jLO-Ga-GBA">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

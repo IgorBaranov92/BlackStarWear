@@ -5,6 +5,7 @@ protocol CartViewDelegate: class {
     func cartViewTouched()
 }
 
-protocol AddToCartDelegate: class {
-    func addToCart()
+protocol ItemRemoveDelegate: class {
+    func remove()
+    func cancel()
 }

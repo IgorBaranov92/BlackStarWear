@@ -18,6 +18,11 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var pageControl: UIPageControl! { didSet {
         pageControl.numberOfPages = item.images.count
     }}
+    @IBOutlet weak var cartView: UIView! { didSet {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToCart(_:)))
+        cartView.addGestureRecognizer(tapGesture)
+    }}
+    
     
     @IBOutlet private weak var imageHeightConstraint: NSLayoutConstraint!
     
@@ -76,5 +81,12 @@ extension ItemDetailViewController {
         itemNameLabel.text = item.name
         itemDescriptionLabel.text = item.description
         priceLabel.text = String(item.price)
+    }
+    
+    @objc
+    fileprivate func goToCart(_ recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .ended {
+            performSegue(withIdentifier: "cart", sender: cartView)
+        }
     }
 }
