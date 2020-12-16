@@ -2,13 +2,8 @@ import UIKit
 
 class TotalLabel: UILabel {
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setup()
     }
     

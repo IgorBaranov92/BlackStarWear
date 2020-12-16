@@ -3,17 +3,9 @@ import UIKit
 class ItemDescriptionLabel: UILabel {
 
     override var text: String? { didSet { updateWith(text ?? "") }}
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    private func setup() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         font = UIFont(name: "Roboto-Regular", size: 16)!
         numberOfLines = 0
         lineBreakMode = .byWordWrapping

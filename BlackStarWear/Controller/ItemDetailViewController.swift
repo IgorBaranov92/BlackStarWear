@@ -14,7 +14,6 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var itemNameLabel: ItemNameLabel!
     @IBOutlet weak var itemDescriptionLabel: ItemDescriptionLabel!
     @IBOutlet weak var addToCartLabel: AddToCartLabel!
-    @IBOutlet weak var addToCartView: AddToCartView!
     @IBOutlet weak var pageControl: UIPageControl! { didSet {
         pageControl.numberOfPages = item.images.count
     }}
@@ -46,7 +45,7 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
         dismiss(animated: true)
     }
     
-    @IBAction func addToCart(_ sender: UIButton) {
+    @IBAction func addToCart(_ sender: AddToCartButton) {
         
     }
     

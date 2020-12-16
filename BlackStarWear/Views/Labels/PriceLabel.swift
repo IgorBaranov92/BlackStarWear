@@ -6,13 +6,8 @@ class PriceLabel: UILabel {
         setupWith(text ?? "")
     }}
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupWith("")
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupWith("")
     }
     
