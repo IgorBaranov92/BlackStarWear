@@ -9,11 +9,12 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let url = URL(string:"https://blackstarshop.ru/index.php?route=api/v1/products&cat_id=\(itemID)")
-        ItemsFetcher.fetch(url) { [weak self] in
-            self?.items = $0
-            self?.collectionView.reloadData()
-        }
+        if items.isEmpty {
+            ItemsFetcher.fetch(URLS.getProductURLWith(id: "\(itemID)")) { [weak self] in
+                self?.items = $0
+                self?.collectionView.reloadData()
+            }
+        }        
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

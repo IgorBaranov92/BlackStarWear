@@ -1,14 +1,14 @@
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var item: Item!
     
     @IBOutlet var spacings: [NSLayoutConstraint]!
     @IBOutlet var outlets: [UIView]!
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var priceLabel: PriceLabel!
     @IBOutlet weak var costLabel: CostLabel!
     @IBOutlet weak var itemNameLabel: ItemNameLabel!
@@ -29,8 +29,7 @@ class ItemDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000)
-        imageScrollView.contentSize = CGSize(width: view.bounds.width * CGFloat(item.images.count), height: imageHeightConstraint.constant)
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: totalHeight + 10)
     }
     
     
@@ -46,6 +45,30 @@ class ItemDetailViewController: UIViewController {
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return item.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemImage", for: indexPath)
+        if let itemImageCell = cell as? ItemImageCollectionViewCell {
+            
+            itemImageCell.fetch(URLS.getIconURLBasedOn(iconName: item.images[indexPath.row]), backupData: item.backup?[indexPath.row]) { [weak self] (data, url) in
+                self?.item.backup?[indexPath.row] = data
+            }
+            return itemImageCell
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.bounds.width, height: imageHeightConstraint.constant)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x)/Int(scrollView.bounds.width)
+        pageControl.currentPage = page
+    }
 }
 
 extension ItemDetailViewController {

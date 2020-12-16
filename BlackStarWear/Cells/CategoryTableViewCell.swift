@@ -2,7 +2,9 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
 
-    @IBOutlet private(set) weak var categoryImageView: UIImageView!
+    @IBOutlet private(set) weak var categoryImageView: UIImageView! { didSet {
+        categoryImageView.layer.cornerRadius = categoryImageView.bounds.width/2
+    }}
     @IBOutlet private(set) weak var categoryLabel: UILabel!
 
     var category = "" { didSet {

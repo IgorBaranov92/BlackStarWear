@@ -8,6 +8,7 @@ struct Item: Codable {
     var backupImageData: Data? = nil
     let description: String
     let images: [String]
+    var backup: [Data]? = nil
    // let offers: [Offer]
     
     struct Offer: Codable {

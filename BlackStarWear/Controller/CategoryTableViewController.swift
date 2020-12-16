@@ -11,9 +11,11 @@ class CategoryTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CategoriesFetcher.fetch { [weak self] in
-            self?.categories = $0
-            self?.tableView.reloadData()
+        if categories.isEmpty {
+            CategoriesFetcher.fetch { [weak self] in
+                self?.categories = $0
+                self?.tableView.reloadData()
+            }
         }
     }
     
