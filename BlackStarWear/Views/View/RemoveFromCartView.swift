@@ -46,6 +46,6 @@ class RemoveFromCartView: UIView {
     }
     
     class func initFromNib() -> RemoveFromCartView {
-    return Bundle(for: RemoveFromCartView.self).loadNibNamed(String(describing: "RemoveFromCartView"), owner: nil, options: nil)!.first as! RemoveFromCartView
+        return Bundle(for: RemoveFromCartView.self).loadNibNamed(String(describing: "RemoveFromCartView"), owner: nil, options: nil)!.first as! RemoveFromCartView
     }
 }

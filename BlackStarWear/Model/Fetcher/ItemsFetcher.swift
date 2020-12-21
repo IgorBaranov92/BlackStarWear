@@ -9,7 +9,6 @@ struct ItemsFetcher {
                 let request = URLRequest(url: url)
                 let task = session.dataTask(with: request) { (data, responce, error) in
                     if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-                        print(json)
                         if let items = json as? [String:Any] {
                             ItemParser.parse(items) { (items) in
                                 DispatchQueue.main.async {

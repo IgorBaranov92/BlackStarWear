@@ -9,7 +9,6 @@ class ItemDescriptionLabel: UILabel {
         font = UIFont(name: "Roboto-Regular", size: 16)!
         numberOfLines = 0
         lineBreakMode = .byWordWrapping
-        translatesAutoresizingMaskIntoConstraints = false
     }
 
     func updateWith(_ newText:String) {

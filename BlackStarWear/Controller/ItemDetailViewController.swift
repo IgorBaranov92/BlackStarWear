@@ -3,9 +3,7 @@ import UIKit
 class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ItemChooserDelegate {
     
     var item: Item!
-    
     var relatedItems = [Item]()
-    
     var cart = Cart()
     
     
@@ -35,6 +33,8 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     }}
  
     @IBOutlet private weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var labelWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var labelOffsetConstraint: NSLayoutConstraint!
     private let tableViewHeight: CGFloat = 300.0
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +43,11 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
         updateCart()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        labelWidthConstraint.constant = view.bounds.width - labelOffsetConstraint.constant*2
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scrollView.contentSize = CGSize(width: view.bounds.width, height: totalHeight + 10)
@@ -91,16 +96,19 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func itemChoosedWith(size: String, color: String) {
         SizeChooserAnimator.popDown(containerView, by: tableViewHeight) { [unowned self] in
-            self.background.backgroundColor = .clear
-            self.background.isUserInteractionEnabled = false
-            self.sizeChooserVC?.tableView.reloadData()
+            self.updateTableView()
             CartViewAnimator.animate(self.cartView)
-            cart.append(CartItem(imageData: item.backupImageData!, name: item.name, size: size, color: color, price: item.price))
+            cart.append(CartItem(imageData: item.backupImageData ?? Data(), name: item.name, size: size, color: color, price: item.price))
             self.saveCart()
             self.cartCounterView.counter = self.cart.items.count
         }
     }
   
+    private func updateTableView() {
+        background.backgroundColor = .clear
+        background.isUserInteractionEnabled = false
+        sizeChooserVC?.tableView.reloadData()
+    }
     
     private var sizeChooserVC: SizeChooserViewController?
 }
@@ -123,7 +131,9 @@ extension ItemDetailViewController {
     
     @objc fileprivate func dismissTable(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            
+            SizeChooserAnimator.popDown(containerView, by: tableViewHeight) { [unowned self] in
+                self.updateTableView()
+            }
         }
     }
     

@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct Cart: Codable {
     
     private(set) var items = [CartItem]()

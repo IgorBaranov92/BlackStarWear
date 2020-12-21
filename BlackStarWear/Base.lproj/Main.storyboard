@@ -123,7 +123,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSD-aa-4LG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OSD-aa-4LG">
                                                     <rect key="frame" x="8" y="8" width="42" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -137,7 +137,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="5A3-jS-L19" secondAttribute="trailing" constant="17" id="Jfa-XH-WPo"/>
                                                 <constraint firstAttribute="bottom" secondItem="5A3-jS-L19" secondAttribute="bottom" constant="7" id="Y0a-TN-BV0"/>
                                                 <constraint firstAttribute="height" constant="36" id="cSf-cK-ddK"/>
-                                                <constraint firstItem="5A3-jS-L19" firstAttribute="leading" relation="lessThanOrEqual" secondItem="OSD-aa-4LG" secondAttribute="trailing" priority="999" constant="31" id="nAX-sZ-ok3"/>
+                                                <constraint firstItem="5A3-jS-L19" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OSD-aa-4LG" secondAttribute="trailing" constant="8" id="nAX-sZ-ok3"/>
                                                 <constraint firstAttribute="bottom" secondItem="OSD-aa-4LG" secondAttribute="bottom" constant="12" id="uLN-Gx-2Jt"/>
                                                 <constraint firstItem="OSD-aa-4LG" firstAttribute="top" secondItem="JTJ-Ix-9HU" secondAttribute="top" constant="8" id="vBk-H8-2xC"/>
                                             </constraints>
@@ -205,7 +205,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5R-Uv-eyH">
-                                        <rect key="frame" x="16" y="40" width="20" height="1"/>
+                                        <rect key="frame" x="16" y="40" width="120" height="1"/>
                                         <color key="backgroundColor" red="0.86274509803921573" green="0.87974401396148061" blue="0.87976480990040062" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="8xw-3v-gfL"/>
@@ -269,10 +269,10 @@
                                         </constraints>
                                         <state key="normal" image="BackButton"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9c-fg-9Lr" customClass="ItemDescriptionLabel" customModule="BlackStarWear" customModuleProvider="target">
-                                        <rect key="frame" x="26" y="147" width="0.0" height="0.0"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9c-fg-9Lr" customClass="ItemDescriptionLabel" customModule="BlackStarWear" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="147" width="100" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="332.32999999999998" id="gFQ-jD-xhN"/>
+                                            <constraint firstAttribute="width" constant="100" id="gFQ-jD-xhN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -459,6 +459,8 @@
                         <outlet property="imageHeightConstraint" destination="lf9-30-CGC" id="yuy-Ne-euz"/>
                         <outlet property="itemDescriptionLabel" destination="Z9c-fg-9Lr" id="MHh-9C-ylW"/>
                         <outlet property="itemNameLabel" destination="kKq-mV-IZv" id="TSe-NN-bm5"/>
+                        <outlet property="labelOffsetConstraint" destination="GsZ-dS-hvC" id="ULT-iD-TJn"/>
+                        <outlet property="labelWidthConstraint" destination="gFQ-jD-xhN" id="UJj-Sb-5ec"/>
                         <outlet property="pageControl" destination="Ctf-EO-wu5" id="Ewr-Ae-m0P"/>
                         <outlet property="priceLabel" destination="zfC-qL-RmB" id="7hi-0S-U7s"/>
                         <outlet property="scrollView" destination="qvl-Rr-IXb" id="qiz-BD-ioG"/>
@@ -625,7 +627,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2500руб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxu-ox-hnN" customClass="TotalPriceLabel" customModule="BlackStarWear" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2500руб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxu-ox-hnN" customClass="TotalPriceLabel" customModule="BlackStarWear" customModuleProvider="target">
                                         <rect key="frame" x="285" y="24" width="74" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemGray2Color"/>

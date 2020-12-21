@@ -65,19 +65,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 present(alert, animated: true)
             }
         }
-        
     }
     
-    
-    
     private func updateTotal() {
-        if cart.totalPrice == 0 {
-            totalPriceLabel.text = "\(cart.totalPrice) руб."
-            makeOrderLabel.text = "На главную"
-        } else {
-            totalPriceLabel.text = "0 руб."
-            makeOrderLabel.text = "Оформить заказ"
-        }
+        totalPriceLabel.text = cart.totalPrice == 0 ? "0 руб." : "\(cart.totalPrice) руб."
+        makeOrderLabel.text =  cart.totalPrice == 0 ? "На главную" : "Оформить заказ"
     }
     
     private let removalView = RemoveFromCartView.initFromNib()
@@ -96,19 +88,19 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         RemoveFromCartViewAnimator.dismiss(removalView) {
             self.cart.removeAt(self.indexToRemove)
             self.saveCart()
-            self.updateUI()
             self.updateTotal()
             self.tableView.reloadData()
+            self.dismissContainerView()
         }
     }
     
     func cancel() {
         RemoveFromCartViewAnimator.dismiss(removalView) {
-            self.updateUI()
+            self.dismissContainerView()
         }
     }
     
-    private func updateUI() {
+    private func dismissContainerView() {
         containerView.isHidden = true
         containerView.isUserInteractionEnabled = false
     }
