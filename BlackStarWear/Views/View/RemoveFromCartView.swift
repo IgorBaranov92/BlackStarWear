@@ -4,6 +4,12 @@ class RemoveFromCartView: UIView {
 
     weak var delegate: ItemRemoveDelegate?
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 8.0
+
+    }
+
     @IBOutlet private weak var yesLabel: UILabel! { didSet {
         yesLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         yesLabel.font = UIFont(name: "SFProDisplay-Regular", size: 15)!
@@ -32,11 +38,14 @@ class RemoveFromCartView: UIView {
     }}
     
     @IBAction private func removeItem(_ sender: YesButton) {
-        
+        delegate?.remove()
     }
     
     @IBAction private func cancel(_ sender: NoButton) {
         delegate?.cancel()
     }
     
+    class func initFromNib() -> RemoveFromCartView {
+    return Bundle(for: RemoveFromCartView.self).loadNibNamed(String(describing: "RemoveFromCartView"), owner: nil, options: nil)!.first as! RemoveFromCartView
+    }
 }

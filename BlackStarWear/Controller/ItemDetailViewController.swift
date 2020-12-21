@@ -37,8 +37,8 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet private weak var imageHeightConstraint: NSLayoutConstraint!
     private let tableViewHeight: CGFloat = 300.0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateUI()
         updateCart()
     }

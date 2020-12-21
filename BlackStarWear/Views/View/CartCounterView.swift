@@ -6,6 +6,7 @@ class CartCounterView: UIView {
     var counter = 0 { didSet {
         counterLabel.isHidden = counter == 0 ? true : false
         counterLabel.text = "\(counter)"
+        setNeedsDisplay()
     }}
     
     @IBOutlet private(set) weak var counterLabel: UILabel! { didSet {
