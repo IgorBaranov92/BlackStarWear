@@ -6,7 +6,7 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     var itemID = 0
     
     var items = [Item]()
-    
+      
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if items.isEmpty {
@@ -44,7 +44,9 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
            let destination = segue.destination as? ItemDetailViewController,
            let cell = sender as? ItemCollectionViewCell,
            let indePath = collectionView.indexPath(for: cell) {
-            destination.item = items[indePath.row]
+            let selectedItem = items[indePath.row]
+            destination.item = selectedItem
+            destination.relatedItems = items.filter { $0.name == selectedItem.name }
         }
     }
 }

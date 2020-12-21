@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 
-protocol CartViewDelegate: class {
-    func cartViewTouched()
+protocol ItemChooserDelegate: class {
+    func itemChoosedWith(size:String,color:String)
 }
 
 protocol ItemRemoveDelegate: class {

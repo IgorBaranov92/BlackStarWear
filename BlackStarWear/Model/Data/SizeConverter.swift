@@ -2,7 +2,7 @@ import Foundation
 
 struct SizeConverter {
 
-    static let sizes = ["XXS":"40",
+    static private let sizes = ["XXS":"40",
                         "XS":"42",
                         "S":"44",
                         "M":"46",
@@ -12,4 +12,8 @@ struct SizeConverter {
                         "XXXL":"54",
                         "4XL":"56",
                         "5XL":"58"]
+    
+    static subscript(_ size:String) -> String? {
+        return sizes[size] 
+    }
 }

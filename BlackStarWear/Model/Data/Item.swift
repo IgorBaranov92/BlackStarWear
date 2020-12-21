@@ -9,10 +9,13 @@ struct Item: Codable {
     let description: String
     let images: [String]
     var backup: [Data]? = nil
-   // let offers: [Offer]
+    var offers: [Offer]
     
     struct Offer: Codable {
         let size: String
         let quantity: Int
+        let color: String
     }
+    
+    
 }
