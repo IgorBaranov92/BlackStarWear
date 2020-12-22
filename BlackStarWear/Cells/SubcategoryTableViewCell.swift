@@ -2,7 +2,11 @@ import UIKit
 
 class SubcategoryTableViewCell: UITableViewCell {
 
-    @IBOutlet private(set) weak var subcategoryImageView: UIImageView!
+    @IBOutlet private(set) weak var subcategoryImageView: UIImageView! { didSet {
+        subcategoryImageView.setPlaceholderIfNeeded()
+        subcategoryImageView.contentMode = .scaleAspectFit
+    }}
+    
     @IBOutlet private(set) weak var subcategoryLabel: UILabel!
 
     var subcategory = "" { didSet {

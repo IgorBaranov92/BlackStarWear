@@ -8,7 +8,8 @@ class ItemImageCollectionViewCell: UICollectionViewCell {
         layer0.bounds = imageView.bounds
         layer0.position = imageView.center
         imageView.layer.addSublayer(layer0)
-        
+        imageView.contentMode = .scaleAspectFit
+        imageView.setPlaceholderIfNeeded()
     }}
     
     

@@ -7,6 +7,12 @@ class SizeChooserViewController: UIViewController, UITableViewDataSource, UITabl
     
     var items = [Item]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }

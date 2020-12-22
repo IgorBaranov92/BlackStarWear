@@ -128,7 +128,7 @@ extension ItemDetailViewController {
                 self.sizeChooserVC = destination
         }
     }
-    
+
     @objc fileprivate func dismissTable(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
             SizeChooserAnimator.popDown(containerView, by: tableViewHeight) { [unowned self] in

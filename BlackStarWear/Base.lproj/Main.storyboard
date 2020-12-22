@@ -12,7 +12,7 @@
         <scene sceneID="N6Y-P9-zJv">
             <objects>
                 <tableViewController id="kT3-Zk-Qew" customClass="SubcategoryTableViewController" customModule="BlackStarWear" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="vVa-7k-Vmc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" id="vVa-7k-Vmc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,7 +165,7 @@
                                     <outlet property="descriptionLabel" destination="che-BX-wg8" id="qoE-8d-UgL"/>
                                     <outlet property="itemImageView" destination="94V-8g-nJ1" id="Ary-Pz-rfL"/>
                                     <outlet property="priceLabel" destination="OSD-aa-4LG" id="fJa-OX-zWU"/>
-                                    <segue destination="tjm-pJ-m4C" kind="presentation" identifier="itemDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="MSb-gV-q9O"/>
+                                    <segue destination="tjm-pJ-m4C" kind="presentation" identifier="itemDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="MSb-gV-q9O"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -322,6 +322,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                                                         </imageView>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="hZO-jo-ttb" firstAttribute="leading" secondItem="htd-XJ-mMb" secondAttribute="leading" id="QIT-XT-IID"/>
                                                         <constraint firstAttribute="bottom" secondItem="hZO-jo-ttb" secondAttribute="bottom" id="fBe-Rr-x6b"/>
@@ -347,9 +348,6 @@
                                             <constraint firstAttribute="height" constant="11" id="kfP-m7-4hd"/>
                                         </constraints>
                                         <state key="normal" image="BackButton"/>
-                                        <connections>
-                                            <action selector="back:" destination="tjm-pJ-m4C" eventType="touchUpInside" id="DmE-dQ-Cat"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsQ-UE-GPg">
                                         <rect key="frame" x="338" y="17" width="24" height="28"/>
@@ -396,6 +394,16 @@
                                             <constraint firstAttribute="height" constant="28" id="yxd-c6-9AE"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="352-8l-Kv6">
+                                        <rect key="frame" x="9" y="28" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="VFx-xg-rfD"/>
+                                            <constraint firstAttribute="width" constant="24" id="fAL-Er-Kaz"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="back:" destination="tjm-pJ-m4C" eventType="touchUpInside" id="J7Q-kM-aIi"/>
+                                        </connections>
+                                    </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-EO-wu5">
                                         <rect key="frame" x="8" y="259" width="368.33333333333331" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -406,6 +414,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="SPa-bW-pAQ" secondAttribute="bottom" id="8re-X6-ebN"/>
+                                    <constraint firstItem="352-8l-Kv6" firstAttribute="top" secondItem="5t0-0O-Wno" secondAttribute="top" constant="28" id="ECt-3u-6Xi"/>
+                                    <constraint firstItem="352-8l-Kv6" firstAttribute="leading" secondItem="5t0-0O-Wno" secondAttribute="leading" constant="9" id="EjS-fA-lhL"/>
                                     <constraint firstItem="Ylb-VS-0QW" firstAttribute="top" secondItem="5t0-0O-Wno" secondAttribute="top" constant="34" id="HkJ-hY-iR1"/>
                                     <constraint firstItem="ZsQ-UE-GPg" firstAttribute="top" secondItem="5t0-0O-Wno" secondAttribute="top" constant="17" id="YKX-UJ-PUX"/>
                                     <constraint firstItem="Ylb-VS-0QW" firstAttribute="leading" secondItem="5t0-0O-Wno" secondAttribute="leading" constant="13" id="aGi-Iw-zgm"/>
@@ -596,7 +606,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bT6-BH-ifE" customClass="MakeOrderButton" customModule="BlackStarWear" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                                         <connections>
-                                            <action selector="makeOrder:" destination="IJB-BO-e3H" eventType="touchUpInside" id="BEh-Av-tUE"/>
+                                            <action selector="makeOrder:" destination="IJB-BO-e3H" eventType="touchUpInside" id="AN3-Px-Njl"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оформить заказ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-uc-3PG" customClass="MakeOrderLabel" customModule="BlackStarWear" customModuleProvider="target">
@@ -706,9 +716,11 @@
                         <outlet property="makeOrderLabel" destination="K6r-uc-3PG" id="WIo-ei-Cqv"/>
                         <outlet property="tableView" destination="bzw-MA-vtC" id="rQ8-as-JkX"/>
                         <outlet property="totalPriceLabel" destination="mxu-ox-hnN" id="rWO-Ah-v9f"/>
+                        <segue destination="fGT-XE-5vZ" kind="unwind" identifier="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="wo3-Dh-loA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uea-c0-bOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fGT-XE-5vZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4328.8000000000002" y="83.497536945812811"/>
         </scene>
@@ -734,7 +746,7 @@
         <scene sceneID="av5-KP-vxt">
             <objects>
                 <tableViewController id="jUo-dZ-VCR" customClass="CategoryTableViewController" customModule="BlackStarWear" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="vPY-Nb-DKS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" id="vPY-Nb-DKS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

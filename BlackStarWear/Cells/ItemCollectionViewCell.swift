@@ -11,6 +11,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private(set) weak var itemImageView: UIImageView! { didSet {
         itemImageView.transform3D = CATransform3DMakeAffineTransform(CGAffineTransform(a: 1, b: 0, c: 0, d: 0.83, tx: 0, ty: 0.08))
+        itemImageView.setPlaceholderIfNeeded()
+        itemImageView.contentMode = .scaleAspectFit
     }}
     
     @IBOutlet private(set) weak var priceLabel: UILabel! { didSet {

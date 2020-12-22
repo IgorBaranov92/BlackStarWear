@@ -14,6 +14,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCart()
+        tableView.tableFooterView = UIView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +28,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             cartCell.size = cart.items[indexPath.row].size
             cartCell.price = String(cart.items[indexPath.row].price)
             cartCell.color = cart.items[indexPath.row].color
-            cartCell.itemImageView.image = UIImage(data: cart.items[indexPath.row].imageData)
+            if UIImage(data: cart.items[indexPath.row].imageData) == nil {
+                cartCell.itemImageView.setPlaceholderIfNeeded()
+            } else {
+                cartCell.itemImageView.image = UIImage(data: cart.items[indexPath.row].imageData)
+            }
             cartCell.resignationHandler = { [unowned self] in
                 self.showRemovalView()
                 self.indexToRemove = indexPath.row
@@ -51,7 +56,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBAction func makeOrder(_ sender: MakeOrderButton) {
         if cart.totalPrice == 0 {
-            dismiss(animated: true)
+            unwind()
         } else {
             if buyer.money >= cart.totalPrice {
                 buyer.money -= cart.totalPrice
@@ -59,10 +64,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 saveCart()
                 updateTotal()
                 tableView.reloadData()
+                let successAlert = UIAlertController(title: "УРА!", message: "Оплата успешно совершена", preferredStyle: .alert)
+                successAlert.addAction(UIAlertAction(title: "На главный экран", style: .default, handler: { _ in self.unwind()}))
+                present(successAlert, animated: true)
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Недостаточно средств", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                present(alert, animated: true)
+                let errorAlert = UIAlertController(title: "Ошибка", message: "Недостаточно средств", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                present(errorAlert, animated: true)
             }
         }
     }
@@ -103,6 +111,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func dismissContainerView() {
         containerView.isHidden = true
         containerView.isUserInteractionEnabled = false
+    }
+    
+    @objc private func unwind() {
+        performSegue(withIdentifier: "unwind", sender: self)
     }
 }
 

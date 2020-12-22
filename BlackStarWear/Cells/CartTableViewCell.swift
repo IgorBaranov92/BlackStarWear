@@ -4,7 +4,9 @@ class CartTableViewCell: UITableViewCell {
 
     var resignationHandler: (() -> Void)?
 
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemImageView: UIImageView! { didSet {
+        itemImageView.contentMode = .scaleAspectFit
+    }}
     
     var itemName = "" { didSet {
         itemNameLabel.attributedText = NSMutableAttributedString(string: itemName, attributes: [.kern: 0.19])

@@ -7,6 +7,7 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,4 +55,6 @@ class CategoryTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {}
+
 }

@@ -24,9 +24,13 @@ class ItemParser {
                         offers.append(Item.Offer(size: size, quantity: Int(quantity)!, color: color))
                     }
                 }
-                productImages.forEach { (key) in
-                    if let imageURL = key["imageURL"] as? String {
-                        images.append(imageURL)
+                if productImages.isEmpty {
+                    images.append(" ")
+                } else {
+                    productImages.forEach { (key) in
+                        if let imageURL = key["imageURL"] as? String {
+                            images.append(imageURL)
+                        }
                     }
                 }
                 items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description, images: images, offers: offers))
