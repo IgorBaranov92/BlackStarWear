@@ -46,8 +46,8 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         labelWidthConstraint.constant = view.bounds.width - labelOffsetConstraint.constant*2
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scrollView.contentSize = CGSize(width: view.bounds.width, height: totalHeight + 10)
@@ -79,15 +79,24 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
         if let itemImageCell = cell as? ItemImageCollectionViewCell {
             itemImageCell.fetch(URLS.getIconURLBasedOn(iconName: item.images[indexPath.row]), backupData: item.backup?[indexPath.row]) { [weak self] (data, url) in
                 self?.item.backup?[indexPath.row] = data
+                self?.updateSizeFor(itemImageCell)
             }
             return itemImageCell
         }
         return cell
     }
+
+    private func updateSizeFor(_ cell: ItemImageCollectionViewCell) {
+        let ratio = cell.imageView.image!.size.width/cell.imageView.image!.size.height
+        imageHeightConstraint.constant = view.bounds.width/ratio
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.bounds.width, height: imageHeightConstraint.constant)
     }
+    
+  
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int(scrollView.contentOffset.x)/Int(scrollView.bounds.width)

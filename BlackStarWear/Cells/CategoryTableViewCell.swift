@@ -3,7 +3,6 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet private(set) weak var categoryImageView: UIImageView! { didSet {
-        categoryImageView.layer.cornerRadius = categoryImageView.bounds.width/2
         categoryImageView.contentMode = .scaleAspectFit
         categoryImageView.setPlaceholderIfNeeded()
     }}
