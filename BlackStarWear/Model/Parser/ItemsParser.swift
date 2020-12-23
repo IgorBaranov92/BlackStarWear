@@ -33,7 +33,7 @@ class ItemParser {
                         }
                     }
                 }
-                items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description, images: images, offers: offers))
+                items.append(Item(name: name, price: Int(doublePrice), mainImage: mainImage, description: description.noHTML, images: images, offers: offers))
                 
             }
         }
