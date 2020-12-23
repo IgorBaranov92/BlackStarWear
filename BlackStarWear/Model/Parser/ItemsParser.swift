@@ -25,7 +25,7 @@ class ItemParser {
                     }
                 }
                 if productImages.isEmpty {
-                    images.append(" ")
+                    images.append("")
                 } else {
                     productImages.forEach { (key) in
                         if let imageURL = key["imageURL"] as? String {

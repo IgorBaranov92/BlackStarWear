@@ -77,10 +77,16 @@ class ItemDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemImage", for: indexPath)
         if let itemImageCell = cell as? ItemImageCollectionViewCell {
-            itemImageCell.fetch(URLS.getIconURLBasedOn(iconName: item.images[indexPath.row]), backupData: item.backup?[indexPath.row]) { [weak self] (data, url) in
-                self?.item.backup?[indexPath.row] = data
-                self?.updateSizeFor(itemImageCell)
+            if item.images[indexPath.row].isEmpty {
+                itemImageCell.imageView.image = UIImage(named: "Placeholder")
+                updateSizeFor(itemImageCell)
+            } else {
+                itemImageCell.fetch(URLS.getIconURLBasedOn(iconName: item.images[indexPath.row]), backupData: item.backup?[indexPath.row]) { [weak self] (data, url) in
+                    self?.item.backup?[indexPath.row] = data
+                    self?.updateSizeFor(itemImageCell)
+                }
             }
+                
             return itemImageCell
         }
         return cell

@@ -142,7 +142,7 @@
                                                 <constraint firstItem="OSD-aa-4LG" firstAttribute="top" secondItem="JTJ-Ix-9HU" secondAttribute="top" constant="8" id="vBk-H8-2xC"/>
                                             </constraints>
                                         </view>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94V-8g-nJ1">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94V-8g-nJ1">
                                             <rect key="frame" x="0.0" y="44" width="168" height="168"/>
                                         </imageView>
                                     </subviews>

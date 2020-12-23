@@ -9,7 +9,6 @@ class ItemImageCollectionViewCell: UICollectionViewCell {
         layer0.position = imageView.center
         imageView.layer.addSublayer(layer0)
         imageView.contentMode = .scaleAspectFit
-        imageView.setPlaceholderIfNeeded()
     }}
     
     
@@ -17,10 +16,12 @@ class ItemImageCollectionViewCell: UICollectionViewCell {
         if let imageData = backupData {
             imageView.image = UIImage(data: imageData)
         } else {
+            
             ImageFetcher.fetch(url) { (data, foundURL) in
                 if let image = UIImage(data: data), foundURL == url {
                     self.imageView.image = image
                     competion(data,foundURL)
+                    
                 }
             }
         }
